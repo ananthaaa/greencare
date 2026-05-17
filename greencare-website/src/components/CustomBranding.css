@@ -1,0 +1,91 @@
+.custom-branding {
+  background-color: var(--bg-white);
+}
+
+.branding-container {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.branding-content {
+  flex: 1;
+}
+
+.branding-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.branding-text {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  margin-bottom: 30px;
+}
+
+.branding-benefits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.benefit-icon {
+  color: var(--primary);
+}
+
+.branding-image-wrapper {
+  flex: 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+.branding-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .branding-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .branding-content {
+    order: 2;
+  }
+
+  .branding-image-wrapper {
+    order: 1;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .branding-benefits {
+    grid-template-columns: 1fr;
+  }
+}

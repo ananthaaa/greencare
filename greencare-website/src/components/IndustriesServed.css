@@ -1,0 +1,44 @@
+.industries {
+  background-color: var(--primary-dark);
+  color: var(--bg-white);
+}
+
+.industries .section-title {
+  color: var(--bg-white);
+}
+
+.industries .section-subtitle {
+  color: var(--primary-light);
+  opacity: 0.9;
+}
+
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.industry-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 40px 20px;
+  border-radius: var(--radius);
+  text-align: center;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.industry-card:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.industry-icon {
+  margin-bottom: 16px;
+  color: var(--bg-white);
+}
+
+.industry-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
