@@ -7,32 +7,38 @@ export const productCategories = [
       {
         "name": "ALUMINIUM FOIL 72 MTR",
         "uom": "NOS",
-        "price": 260
+        "price": 260,
+        "image": "/images/aluminiumfoil72mtr.png"
       },
       {
         "name": "ALUMINIUM FOIL 1 KG",
         "uom": "NOS",
-        "price": 435
+        "price": 435,
+        "image": "/images/aluminiumfoil1kg.png"
       },
       {
         "name": "SILVER COVER",
         "uom": "KG",
-        "price": 185
+        "price": 185,
+        "image": "/images/silvercover.png"
       },
       {
         "name": "CLING FILM 300 MTR",
         "uom": "NOS",
-        "price": 300
+        "price": 300,
+        "image": "/images/clingfilm300mtr.png"
       },
       {
         "name": "CLING FILM 600 MTR",
         "uom": "NOS",
-        "price": 400
+        "price": 400,
+        "image": "/images/clingfilm600mtr.png"
       },
       {
         "name": "SILVER SHEET (MEALS PARCEL)",
         "uom": "PKT",
-        "price": 65
+        "price": 65,
+        "image": "/images/silversheet(mealsparcel).png"
       }
     ]
   },
@@ -43,47 +49,56 @@ export const productCategories = [
       {
         "name": "GARBAGE BAG PLASTIC",
         "uom": "KG",
-        "price": 135
+        "price": 135,
+        "image": "/images/garbagebagplastic.png"
       },
       {
         "name": "OXO DE GRADABLE GARBAGE BAG",
         "uom": "KG",
-        "price": 160
+        "price": 160,
+        "image": "/images/oxodegradable.png"
       },
       {
         "name": "BIO DEGRADABLE GARBAGE BAG",
         "uom": "KG",
-        "price": 180
+        "price": 180,
+        "image": "/images/biodegradable.png"
       },
       {
         "name": "DUSTBIN COVER",
         "uom": "KG",
-        "price": 135
+        "price": 135,
+        "image": "/images/dustbincover.png"
       },
       {
         "name": "HM COVER",
         "uom": "KG",
-        "price": 125
+        "price": 125,
+        "image": "/images/hmcover.png"
       },
       {
         "name": "LD COVER",
         "uom": "KG",
-        "price": 200
+        "price": 200,
+        "image": "/images/ldcover.png"
       },
       {
         "name": "BIO CARRY BAGS",
         "uom": "KG",
-        "price": 180
+        "price": 180,
+        "image": "/images/biocarrybag.png"
       },
       {
         "name": "CARRY BAG PLASTIC",
         "uom": "KG",
-        "price": 140
+        "price": 140,
+        "image": "/images/plasticcarrybag.png"
       },
       {
         "name": "LAUNDRY BAG",
         "uom": "NOS",
-        "price": 11.25
+        "price": 11.25,
+        "image": "/images/laundrybag.png"
       }
     ]
   },
@@ -94,72 +109,86 @@ export const productCategories = [
       {
         "name": "PAPER NAPKIN",
         "uom": ".",
-        "price": 16
+        "price": 16,
+        "image": "/images/papernapkin1.png"
       },
       {
         "name": "PAPER STRAW 6MM",
         "uom": "PKT",
-        "price": 20
+        "price": 20,
+        "image": "/images/paperstraw6mm.png"
       },
       {
         "name": "PAPER STRAW 8MM",
         "uom": "PKT",
-        "price": 30
+        "price": 30,
+        "image": "/images/paperstraw8mm.png"
       },
       {
         "name": "PAPER CUP 150 ML",
         "uom": "PKT",
-        "price": 45
+        "price": 45,
+        "image": "/images/papercup.png"
       },
       {
         "name": "PAPER CUP 210 ML",
         "uom": "PKT",
-        "price": 55
+        "price": 55,
+        "image": "/images/papercup.png"
       },
       {
         "name": "PAPER CUP 250 ML",
         "uom": "PKT",
-        "price": 60
+        "price": 60,
+        "image": "/images/papercup.png"
       },
       {
         "name": "PAPER CUP 350 ML",
         "uom": "NOS",
-        "price": 3.6
+        "price": 3.6,
+        "image": "/images/papercup.png"
       },
       {
         "name": "PAPER PLATE SMALL",
         "uom": "PKT",
-        "price": 45
+        "price": 45,
+        "image": "/images/paperplatesmall.png"
       },
       {
         "name": "PAPER PLATE BIG",
         "uom": "PKT",
-        "price": 145
+        "price": 145,
+        "image": "/images/paperplatebig.png"
       },
       {
         "name": "PAPER NAPKIN",
         "uom": "PKT",
-        "price": "16,18,25,35"
+        "price": "16,18,25,35",
+        "image": "/images/papernapkin2.png"
       },
       {
         "name": "M FOLD NAPKIN",
         "uom": "NOS",
-        "price": 42
+        "price": 42,
+        "image": "/images/mfoldnapkin.png"
       },
       {
         "name": "TOILET ROLL",
         "uom": "NOS",
-        "price": 25
+        "price": 25,
+        "image": "/images/toiletroll.png"
       },
       {
         "name": "BILL ROLL (KOT)",
         "uom": "NOS",
-        "price": 37
+        "price": 37,
+        "image": "/images/billroll.png"
       },
       {
         "name": "PAPER ROLL",
         "uom": "KG",
-        "price": 48
+        "price": 48,
+        "image": "/images/paperroll.png"
       }
     ]
   },
@@ -170,22 +199,26 @@ export const productCategories = [
       {
         "name": "LATEX GLOVES",
         "uom": "PKT",
-        "price": 300
+        "price": 300,
+        "image": "/images/latexgloves.png"
       },
       {
         "name": "NITRAL GLOVES",
         "uom": "PKT",
-        "price": 280
+        "price": 280,
+        "image": "/images/nitralgloves.png"
       },
       {
         "name": "PLASTIC GLOVES",
         "uom": "PKT",
-        "price": 25
+        "price": 25,
+        "image": "/images/plasticglove.png"
       },
       {
         "name": "RUBER GLOVES",
         "uom": "PKT",
-        "price": 60
+        "price": 60,
+        "image": "/images/rubberglove.png"
       }
     ]
   },

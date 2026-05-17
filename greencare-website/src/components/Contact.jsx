@@ -87,8 +87,14 @@ Message: ${formData.message}`;
 
             <div className="catalog-download mt-8">
               <h4>Want to see all our products?</h4>
-              <a href="#" className="btn btn-outline" style={{ marginTop: '10px', width: '100%' }}>
-                Download PDF Catalog
+              <a 
+                href="https://docs.google.com/spreadsheets/d/1C03dhohyOkrKj554cuy_IfD6sOPlkpCn/edit?usp=sharing&ouid=114737019984101856603&rtpof=true&sd=true" 
+                target="_blank" 
+                rel="noreferrer"
+                className="btn btn-outline" 
+                style={{ marginTop: '10px', width: '100%' }}
+              >
+                Download catalog
               </a>
             </div>
           </motion.div>

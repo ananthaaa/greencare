@@ -80,7 +80,7 @@ const ProductCatalog = () => {
                         transition={{ delay: idx * 0.05 }}
                       >
                         <div className="product-image-container">
-                          <img src={activeCategoryData.image} alt={product.name} />
+                          <img src={product.image || activeCategoryData.image} alt={product.name} />
                         </div>
                         <div className="product-info">
                           <h4>{product.name}</h4>
