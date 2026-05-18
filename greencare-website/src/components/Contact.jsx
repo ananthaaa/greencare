@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, FileText } from 'lucide-react';
+import { MapPin, Phone, Mail, FileText, ArrowRight } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
@@ -11,16 +11,14 @@ const Contact = () => {
     email: '',
     product: '',
     quantity: '',
-    message: ''
+    message: '',
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Format message for WhatsApp
     const text = `*New Inquiry from Greencare Website*
 Name: ${formData.name}
 Business: ${formData.businessName}
@@ -29,124 +27,133 @@ Email: ${formData.email}
 Product Required: ${formData.product}
 Quantity: ${formData.quantity}
 Message: ${formData.message}`;
-    
-    const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/919072112316?text=${encodedText}`, '_blank');
+    window.open(`https://wa.me/919072112316?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (
     <section className="contact section-padding" id="contact">
       <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="section-title">Get in Touch</h2>
-          <p className="section-subtitle">Request a quote or download our full product catalog</p>
-        </div>
 
-        <div className="contact-wrapper">
-          <motion.div 
-            className="contact-info-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+        {/* Header */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="badge badge-primary" style={{ marginBottom: '14px' }}>Get In Touch</span>
+          <h2 className="section-title">
+            Request a{' '}
+            <span className="serif-accent" style={{ color: 'var(--primary)' }}>Quote</span>
+          </h2>
+          <p className="section-subtitle" style={{ margin: '0 auto' }}>
+            Tell us what you need and we'll get back to you within 24 hours.
+          </p>
+        </motion.div>
+
+        <div className="contact__wrapper">
+
+          {/* Info card */}
+          <motion.div
+            className="contact__info"
+            initial={{ opacity: 0, x: -28 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
           >
-            <h3>Contact Information</h3>
-            <p className="mb-8 text-gray">Fill up the form and our Team will get back to you within 24 hours.</p>
-            
-            <div className="info-item">
-              <div className="info-icon"><Phone size={20} /></div>
-              <div>
-                <h4>Call / WhatsApp</h4>
-                <p>+91 9072112316</p>
-              </div>
-            </div>
-            
-            <div className="info-item">
-              <div className="info-icon"><Mail size={20} /></div>
-              <div>
-                <h4>Email</h4>
-                <p>greencarepacks@gmail.com</p>
-              </div>
-            </div>
-            
-            <div className="info-item">
-              <div className="info-icon"><MapPin size={20} /></div>
-              <div>
-                <h4>Address</h4>
-                <p>KK Road, Opp Indian Oil Pump, Chempumukku</p>
-              </div>
-            </div>
-            
-            <div className="info-item">
-              <div className="info-icon"><FileText size={20} /></div>
-              <div>
-                <h4>GST Number</h4>
-                <p>32APYPJ7697H1Z1</p>
-              </div>
+            <div className="contact__info-header">
+              <h3>Contact Information</h3>
+              <p>Fill out the form and our team will get back to you within 24 hours.</p>
             </div>
 
-            <div className="catalog-download mt-8">
+            <div className="contact__info-items">
+              {[
+                { icon: <Phone size={20} />, label: 'Call / WhatsApp', value: '+91 9072112316' },
+                { icon: <Mail size={20} />, label: 'Email', value: 'greencarepacks@gmail.com' },
+                { icon: <MapPin size={20} />, label: 'Address', value: 'KK Road, Opp Indian Oil Pump, Chempumukku' },
+                { icon: <FileText size={20} />, label: 'GST Number', value: '32APYPJ7697H1Z1' },
+              ].map((item) => (
+                <div key={item.label} className="contact__info-item">
+                  <div className="contact__info-icon">{item.icon}</div>
+                  <div>
+                    <h4>{item.label}</h4>
+                    <p>{item.value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="contact__catalog">
               <h4>Want to see all our products?</h4>
-              <a 
-                href="https://docs.google.com/spreadsheets/d/1C03dhohyOkrKj554cuy_IfD6sOPlkpCn/edit?usp=sharing&ouid=114737019984101856603&rtpof=true&sd=true" 
-                target="_blank" 
+              <a
+                href="https://docs.google.com/spreadsheets/d/1C03dhohyOkrKj554cuy_IfD6sOPlkpCn/edit?usp=sharing&ouid=114737019984101856603&rtpof=true&sd=true"
+                target="_blank"
                 rel="noreferrer"
-                className="btn btn-outline" 
-                style={{ marginTop: '10px', width: '100%' }}
+                className="btn"
+                style={{
+                  background: 'rgba(153,235,180,0.12)',
+                  color: 'var(--accent-mint)',
+                  border: '1px solid rgba(153,235,180,0.25)',
+                  width: '100%',
+                  justifyContent: 'center',
+                  gap: '8px',
+                }}
               >
-                Download catalog
+                Download Catalog <ArrowRight size={16} />
               </a>
             </div>
           </motion.div>
 
-          <motion.div 
-            className="contact-form-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          {/* Form card */}
+          <motion.div
+            className="contact__form-card"
+            initial={{ opacity: 0, x: 28 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
           >
             <form onSubmit={handleSubmit} className="inquiry-form">
               <div className="form-row">
                 <div className="form-group">
                   <label>Your Name *</label>
-                  <input type="text" name="name" required value={formData.name} onChange={handleChange} />
+                  <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder="John Doe" />
                 </div>
                 <div className="form-group">
                   <label>Business Name *</label>
-                  <input type="text" name="businessName" required value={formData.businessName} onChange={handleChange} />
+                  <input type="text" name="businessName" required value={formData.businessName} onChange={handleChange} placeholder="Your Restaurant" />
                 </div>
               </div>
-              
+
               <div className="form-row">
                 <div className="form-group">
                   <label>Phone Number *</label>
-                  <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} />
+                  <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210" />
                 </div>
                 <div className="form-group">
                   <label>Email Address</label>
-                  <input type="email" name="email" value={formData.email} onChange={handleChange} />
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="you@business.com" />
                 </div>
               </div>
 
               <div className="form-row">
                 <div className="form-group">
                   <label>Product Requirement *</label>
-                  <input type="text" name="product" required placeholder="e.g. 500ml Meal Boxes" value={formData.product} onChange={handleChange} />
+                  <input type="text" name="product" required value={formData.product} onChange={handleChange} placeholder="e.g. 500ml Meal Boxes" />
                 </div>
                 <div className="form-group">
                   <label>Quantity *</label>
-                  <input type="text" name="quantity" required placeholder="e.g. 1000 pcs" value={formData.quantity} onChange={handleChange} />
+                  <input type="text" name="quantity" required value={formData.quantity} onChange={handleChange} placeholder="e.g. 1000 pcs" />
                 </div>
               </div>
 
               <div className="form-group">
                 <label>Message</label>
-                <textarea name="message" rows="4" value={formData.message} onChange={handleChange}></textarea>
+                <textarea name="message" rows={4} value={formData.message} onChange={handleChange} placeholder="Any additional details..." />
               </div>
 
               <button type="submit" className="btn btn-primary submit-btn">
-                Send Inquiry via WhatsApp
+                Send Inquiry via WhatsApp <ArrowRight size={18} />
               </button>
             </form>
           </motion.div>

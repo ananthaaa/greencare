@@ -28,30 +28,30 @@
 .feature-card {
   background-color: var(--bg-white);
   padding: 32px 24px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-premium);
   text-align: center;
-  transition: var(--transition);
-  border: 1px solid var(--border-color);
+  transition: var(--transition-premium);
+  border: var(--border-subtle);
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--primary-light);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(3, 130, 98, 0.15);
 }
 
 .feature-icon {
   width: 64px;
   height: 64px;
-  background-color: var(--primary-light);
+  background-color: rgba(3, 130, 98, 0.05);
   color: var(--primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
-  transition: var(--transition);
+  transition: var(--transition-fast);
 }
 
 .feature-card:hover .feature-icon {

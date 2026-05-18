@@ -1,82 +1,129 @@
+/* ============================================================
+   ABOUT — Greenspire refined layout
+   ============================================================ */
 .about {
+  background-color: var(--bg-offwhite);
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(3,130,98,0.08), transparent);
+}
+
+/* ---- Two-column grid ---- */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: flex-start;
+}
+
+/* ---- Text column ---- */
+.about__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__body {
+  font-size: 1.05rem;
+  color: var(--text-gray);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+/* ---- Cards column ---- */
+.about__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about__card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  border: var(--border-subtle);
+  border-left: 4px solid var(--primary);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-premium);
+  cursor: default;
+}
+
+.about__card:hover {
+  box-shadow: var(--shadow-hover);
+  border-left-color: var(--accent-mint);
   background-color: var(--bg-white);
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+.about__card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--primary-muted);
+  display: flex;
   align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  margin-bottom: 16px;
+  transition: var(--transition-base);
 }
 
-.about-text {
-  font-size: 1.1rem;
+.about__card:hover .about__card-icon {
+  background: var(--primary);
+  color: var(--bg-white);
+  transform: rotate(-6deg) scale(1.08);
+}
+
+.about__card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.about__card-body {
+  font-size: 0.92rem;
   color: var(--text-gray);
-  margin-bottom: 20px;
+  line-height: 1.65;
 }
 
-.about-cards {
+/* ---- Values list ---- */
+.about__values {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.about-card {
-  background-color: var(--bg-offwhite);
-  padding: 24px;
-  border-radius: var(--radius);
-  border-left: 4px solid var(--primary);
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-}
-
-.about-card:hover {
-  transform: translateX(10px);
-  box-shadow: var(--shadow-md);
-  border-left-width: 6px;
-}
-
-.about-icon-wrapper {
-  margin-bottom: 12px;
-}
-
-.about-icon {
-  color: var(--primary);
-}
-
-.about-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
-  color: var(--text-dark);
-}
-
-.about-card p {
-  color: var(--text-gray);
-  font-size: 0.95rem;
-  margin: 0;
-}
-
-.values-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-.values-list li {
-  background-color: var(--primary-light);
-  color: var(--primary-dark);
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 0.85rem;
+.about__values li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
   font-weight: 500;
+  color: var(--text-body);
 }
 
+.about__value-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 @media (max-width: 992px) {
-  .about-grid {
+  .about__grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
   }
 }

@@ -1,39 +1,40 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
-import Features from './components/Features';
 import Products from './components/Products';
+import About from './components/About';
 import IndustriesServed from './components/IndustriesServed';
 import CustomBranding from './components/CustomBranding';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ProductCatalog from './pages/ProductCatalog';
+import WhatsAppFloat from './components/WhatsAppFloat';
 
-// The main landing page view
-const Home = () => (
-  <main>
-    <Hero />
-    <About />
-    <Features />
-    <Products />
-    <IndustriesServed />
-    <CustomBranding />
-    <Contact />
-  </main>
-);
+function HomePage() {
+  return (
+    <>
+      <Hero />
+      <Products />
+      <About />
+      <IndustriesServed />
+      <CustomBranding />
+      <Contact />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="app">
+    <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductCatalog />} />
       </Routes>
       <Footer />
-    </div>
+      <WhatsAppFloat />
+    </Router>
   );
 }
 

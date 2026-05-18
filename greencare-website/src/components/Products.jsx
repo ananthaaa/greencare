@@ -1,58 +1,129 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Products.css';
 
 const categories = [
-  { id: 1, name: 'Food Containers', image: '/images/food_containers.png' },
-  { id: 2, name: 'Meal Boxes', image: '/images/meal_boxes.png' },
-  { id: 3, name: 'PET Containers', image: '/images/pet_containers.png' },
-  { id: 4, name: 'Paper Bags', image: '/images/paper_bags.png' },
-  { id: 5, name: 'Paper Straws', image: '/images/paper_straws.png' },
-  { id: 6, name: 'Tableware & Hygiene', image: '/images/hygiene_products.png' },
-  { id: 7, name: 'Foil & Kitchen Essentials', image: '/images/kitchen_foil.png' },
-  { id: 8, name: 'Juice Glasses', image: '/images/juice_glasses.png' },
-  { id: 9, name: 'Buckets & Storage', image: '/images/buckets_storage.png' }
+  {
+    name: 'Food Containers & Boxes',
+    image: '/images/FoodContainers.png',
+    description: 'Aluminium trays, plastic containers, meal boxes, and foil solutions for all food types.',
+    count: '80+ SKUs',
+    link: '/products?cat=Food+Containers'
+  },
+  {
+    name: 'Paper & Cups',
+    image: '/images/PaperCups.png',
+    description: 'Eco-friendly paper cups, glasses, soup bowls, and recyclable packaging alternatives.',
+    count: '60+ SKUs',
+    link: '/products?cat=Paper+Products'
+  },
+  {
+    name: 'Bags & Wraps',
+    image: '/images/bags_wraps.png',
+    description: 'Kraft paper bags, carry bags, tissue paper, and stretch wraps for every order.',
+    count: '50+ SKUs',
+    link: '/products?cat=Bags'
+  },
+  {
+    name: 'Tableware & Hygiene',
+    image: '/images/TablewareHygiene.png',
+    description: 'Disposable plates, cutlery, straws, gloves, and essential hygiene supplies.',
+    count: '70+ SKUs',
+    link: '/products?cat=Tableware'
+  },
+  {
+    name: 'PET & Specialty Packs',
+    image: '/images/PET.png',
+    description: 'Crystal-clear PET containers, domes, clamshells, and speciality dessert boxes.',
+    count: '40+ SKUs',
+    link: '/products?cat=PET+Packaging'
+  },
+  {
+    name: 'Custom Branding',
+    image: '/images/custombranding.png',
+    description: 'Logo printing on cups, bags, boxes, and packaging — elevate your brand presence.',
+    count: 'On Request',
+    link: '/#custom-printing'
+  },
 ];
+
+const cardVariants = {
+  hidden:  { opacity: 0, y: 32 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }
+  })
+};
 
 const Products = () => {
   return (
     <section className="products section-padding" id="products">
       <div className="container">
-        <div className="products-header mb-12">
-          <div>
-            <h2 className="section-title">Our Products</h2>
-            <p className="section-subtitle" style={{ margin: 0 }}>Explore our wide range of premium packaging solutions</p>
-          </div>
-          <a href="#contact" className="btn btn-outline desktop-only">Request Full Catalog</a>
-        </div>
 
-        <div className="products-grid">
-          {categories.map((cat, index) => (
-            <motion.div 
-              key={cat.id}
-              className="product-card"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
+        {/* Header */}
+        <motion.div
+          className="products__header"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="products__header-left">
+            <span className="badge badge-primary">Our Range</span>
+            <h2 className="section-title" style={{ marginTop: '14px' }}>
+              Packaging for{' '}
+              <span className="serif-accent" style={{ color: 'var(--primary)' }}>Every</span>
+              {' '}Business
+            </h2>
+            <p className="section-subtitle">
+              From meal boxes to custom branded cups — explore our comprehensive range of
+              food-grade packaging solutions designed for Kerala's F&amp;B industry.
+            </p>
+          </div>
+          <Link to="/products" className="btn btn-outline products__header-cta">
+            Full Catalog <ArrowRight size={16} />
+          </Link>
+        </motion.div>
+
+        {/* Bento grid */}
+        <div className="products__grid">
+          {categories.map((cat, i) => (
+            <motion.div
+              key={cat.name}
+              className="products__card"
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-40px' }}
+              whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeOut' } }}
             >
-              <div className="product-img-wrapper">
-                <img src={cat.image} alt={cat.name} className="product-img" />
+              {/* Image */}
+              <div className="products__card-img-wrap">
+                <img src={cat.image} alt={cat.name} className="products__card-img" loading="lazy" />
+                <div className="products__card-img-overlay" />
+                <span className="products__card-count">{cat.count}</span>
               </div>
-              <div className="product-info">
-                <h3 className="product-name">{cat.name}</h3>
-                <a href={`https://wa.me/919072112316?text=I'm interested in ${cat.name}`} target="_blank" rel="noopener noreferrer" className="product-link">
-                  Inquire Now <ArrowRight size={16} />
-                </a>
+
+              {/* Info */}
+              <div className="products__card-body">
+                <h3 className="products__card-title">{cat.name}</h3>
+                <p className="products__card-desc">{cat.description}</p>
+                <Link
+                  to={cat.link.startsWith('/products') ? cat.link : '/'}
+                  href={cat.link}
+                  className="products__card-link"
+                >
+                  Explore Range <ArrowRight size={14} />
+                </Link>
               </div>
             </motion.div>
           ))}
         </div>
-        
-        <div className="mobile-only text-center" style={{ marginTop: '30px' }}>
-          <a href="#contact" className="btn btn-outline">Request Full Catalog</a>
-        </div>
+
       </div>
     </section>
   );

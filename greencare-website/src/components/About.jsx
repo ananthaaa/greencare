@@ -3,77 +3,92 @@ import { motion } from 'framer-motion';
 import { Target, Eye, Star } from 'lucide-react';
 import './About.css';
 
-const About = () => {
-  return (
-    <section className="about section-padding" id="about">
-      <div className="container">
-        <div className="about-grid">
-          <motion.div 
-            className="about-content"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="section-title">About Greencare</h2>
-            <p className="about-text">
-              Greencare is a trusted supplier of food packaging and disposable solutions dedicated to providing high-quality packaging products for restaurants, cafés, bakeries, hotels, caterers, and food delivery businesses.
-            </p>
-            <p className="about-text">
-              We offer a wide range of food-grade packaging materials including containers, meal boxes, paper products, PET packaging, hygiene products, kitchen essentials, and customized branding solutions.
-            </p>
-            <p className="about-text">
-              With a strong commitment to quality, reliability, and customer satisfaction, Greencare helps businesses enhance their packaging standards while maintaining convenience and hygiene.
-            </p>
-          </motion.div>
+const cards = [
+  {
+    icon: <Target size={22} />,
+    title: 'Our Mission',
+    body: 'To deliver reliable, hygienic, and innovative food packaging solutions that support businesses in serving their customers better.',
+  },
+  {
+    icon: <Eye size={22} />,
+    title: 'Our Vision',
+    body: 'To become one of the leading packaging solution providers in Kerala by offering quality products, excellent service, and customized branding support.',
+  },
+  {
+    icon: <Star size={22} />,
+    title: 'Core Values',
+    list: ['Quality', 'Reliability', 'Innovation', 'Customer Satisfaction', 'Sustainability'],
+  },
+];
 
-          <div className="about-cards">
-            <motion.div 
-              className="about-card"
-              initial={{ opacity: 0, x: 30 }}
+const About = () => (
+  <section className="about section-padding" id="about">
+    <div className="container">
+
+      {/* Top row: headline + paragraph */}
+      <div className="about__grid">
+        <motion.div
+          className="about__text"
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65 }}
+        >
+          <span className="badge badge-primary" style={{ marginBottom: '18px' }}>About Us</span>
+          <h2 className="section-title">
+            Trusted Partner for{' '}
+            <span className="serif-accent" style={{ color: 'var(--primary)' }}>Premium</span>
+            {' '}Packaging
+          </h2>
+          <p className="about__body">
+            Greencare is a trusted supplier of food packaging and disposable solutions
+            dedicated to providing high-quality packaging products for restaurants, cafés,
+            bakeries, hotels, caterers, and food delivery businesses.
+          </p>
+          <p className="about__body">
+            We offer a wide range of food-grade packaging materials including containers, meal
+            boxes, paper products, PET packaging, hygiene products, kitchen essentials, and
+            customized branding solutions.
+          </p>
+          <p className="about__body">
+            With a strong commitment to quality, reliability, and customer satisfaction,
+            Greencare helps businesses enhance their packaging standards while maintaining
+            convenience and hygiene.
+          </p>
+        </motion.div>
+
+        {/* Cards column */}
+        <div className="about__cards">
+          {cards.map((c, i) => (
+            <motion.div
+              key={c.title}
+              className="about__card"
+              initial={{ opacity: 0, x: 28 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.55, delay: i * 0.15 }}
+              whileHover={{ y: -4, transition: { duration: 0.25 } }}
             >
-              <div className="about-icon-wrapper"><Target className="about-icon" /></div>
-              <h3>Our Mission</h3>
-              <p>To deliver reliable, hygienic, and innovative food packaging solutions that support businesses in serving their customers better.</p>
+              <div className="about__card-icon">{c.icon}</div>
+              <h3 className="about__card-title">{c.title}</h3>
+              {c.body && <p className="about__card-body">{c.body}</p>}
+              {c.list && (
+                <ul className="about__values">
+                  {c.list.map((v) => (
+                    <li key={v}>
+                      <span className="about__value-dot" />
+                      {v}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </motion.div>
-
-            <motion.div 
-              className="about-card"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <div className="about-icon-wrapper"><Eye className="about-icon" /></div>
-              <h3>Our Vision</h3>
-              <p>To become one of the leading packaging solution providers in Kerala by offering quality products, excellent service, and customized branding support.</p>
-            </motion.div>
-
-            <motion.div 
-              className="about-card"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <div className="about-icon-wrapper"><Star className="about-icon" /></div>
-              <h3>Core Values</h3>
-              <ul className="values-list">
-                <li>Quality</li>
-                <li>Reliability</li>
-                <li>Innovation</li>
-                <li>Customer Satisfaction</li>
-                <li>Sustainability</li>
-              </ul>
-            </motion.div>
-          </div>
+          ))}
         </div>
       </div>
-    </section>
-  );
-};
+
+    </div>
+  </section>
+);
 
 export default About;

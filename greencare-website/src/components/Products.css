@@ -1,81 +1,161 @@
-.products-header {
+/* ============================================================
+   PRODUCTS — Bento-style category showcase
+   ============================================================ */
+.products {
+  background-color: var(--bg-body);
+}
+
+/* ---- Header ---- */
+.products__header {
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 52px;
+  flex-wrap: wrap;
 }
 
-.products-grid {
+.products__header-left { flex: 1; min-width: 280px; }
+
+.products__header-cta {
+  flex-shrink: 0;
+  align-self: flex-end;
+  gap: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---- Bento grid ---- */
+.products__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
 }
 
-.product-card {
-  background-color: var(--bg-white);
-  border-radius: var(--radius);
+/* ---- Card ---- */
+.products__card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  border: var(--border-subtle);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-premium);
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transition: box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-md);
+.products__card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(3, 130, 98, 0.14);
 }
 
-.product-img-wrapper {
-  height: 240px;
-  overflow: hidden;
+/* ---- Image wrapper ---- */
+.products__card-img-wrap {
   position: relative;
-  background-color: #f0f0f0;
+  height: 220px;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
-.product-img {
+.products__card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.product-card:hover .product-img {
-  transform: scale(1.08);
+.products__card:hover .products__card-img {
+  transform: scale(1.07);
 }
 
-.product-info {
-  padding: 24px;
+/* Subtle bottom gradient overlay */
+.products__card-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(10, 12, 10, 0.35) 100%
+  );
+}
+
+/* SKU count badge on image */
+.products__card-count {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.60);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+/* ---- Card body ---- */
+.products__card-body {
+  padding: 22px 24px 24px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  gap: 8px;
+  flex: 1;
 }
 
-.product-name {
-  font-size: 1.25rem;
-  margin-bottom: 16px;
+.products__card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--text-dark);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
 }
 
-.product-link {
-  margin-top: auto;
+.products__card-desc {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.products__card-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
+  margin-top: 8px;
   color: var(--primary);
+  font-size: 0.88rem;
   font-weight: 600;
-  font-size: 0.95rem;
+  transition: var(--transition-base);
 }
 
-.product-link:hover {
+.products__card-link:hover {
+  gap: 10px;
   color: var(--primary-dark);
-  gap: 12px; /* slight animation to arrow */
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .products__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-  .products-header {
+  .products__header {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    gap: 20px;
   }
+
+  .products__header-cta { align-self: stretch; justify-content: center; }
+}
+
+@media (max-width: 600px) {
+  .products__grid { grid-template-columns: 1fr; gap: 16px; }
+  .products__card-img-wrap { height: 200px; }
 }

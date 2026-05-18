@@ -1,125 +1,337 @@
+/* ============================================================
+   GREENCARE — GREENSPIRE-INSPIRED PREMIUM DESIGN SYSTEM
+   ============================================================ */
+
+/* ---- Google Fonts loaded via index.html ---- */
+
+/* ---- CSS Custom Properties ---- */
 :root {
-  --primary: #038262;
-  --primary-dark: #026b50;
-  --primary-light: #e6f3ef;
-  --text-dark: #1a1a1a;
-  --text-gray: #666666;
-  --bg-white: #ffffff;
-  --bg-offwhite: #f8f9fa;
-  --border-color: #e5e5e5;
-  --radius: 12px;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-  --shadow-lg: 0 12px 32px rgba(3, 130, 98, 0.15);
-  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* Brand colours */
+  --primary:         #038262;
+  --primary-dark:    #026b50;
+  --primary-light:   #4ade80;
+  --primary-muted:   rgba(3, 130, 98, 0.08);
+  --accent-mint:     #99EBB4;
+
+  /* Surface / background */
+  --bg-body:        #FAF8F5;   /* warm off-white — Greenspire */
+  --bg-white:       #FFFFFF;
+  --bg-offwhite:    #F5F2EE;
+  --bg-card:        #FFFFFF;
+  --bg-dark:        #111210;
+  --bg-dark-card:   #1A1B18;
+
+  /* Text */
+  --text-dark:      #1A1A1A;
+  --text-body:      #3D3D3A;
+  --text-gray:      #6B7280;
+  --text-muted:     #9CA3AF;
+  --text-light:     rgba(255,255,255,0.88);
+
+  /* Typography */
+  --font-primary:   'Outfit', 'Inter', sans-serif;
+  --font-sans:      'Outfit', 'Inter', sans-serif;
+  --font-serif:     'Playfair Display', Georgia, serif;
+
+  /* Spacing */
+  --section-py:     100px;
+  --section-py-sm:  64px;
+  --container-max:  1260px;
+
+  /* Border radius — bento aesthetic */
+  --radius-xs:      6px;
+  --radius-sm:      10px;
+  --radius-md:      16px;
+  --radius-lg:      24px;
+  --radius-xl:      32px;
+  --radius-full:    999px;
+
+  /* Borders — hairline style */
+  --border-subtle:       1px solid rgba(26, 26, 26, 0.07);
+  --border-medium:       1px solid rgba(26, 26, 26, 0.12);
+  --border-primary-subtle: 1px solid rgba(3, 130, 98, 0.15);
+  --border-white-subtle: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* Shadows */
+  --shadow-xs:      0 1px 3px rgba(0,0,0,0.04);
+  --shadow-sm:      0 4px 16px rgba(0,0,0,0.05);
+  --shadow-md:      0 8px 28px rgba(0,0,0,0.07);
+  --shadow-lg:      0 16px 40px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-premium: 0 4px 24px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-hover:   0 16px 48px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-green:   0 8px 32px rgba(3, 130, 98, 0.20);
+
+  /* Transitions */
+  --transition-fast:    all 0.15s ease;
+  --transition-base:    all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-premium: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow:    all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-* {
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-primary);
+  background-color: var(--bg-body);
   color: var(--text-dark);
-  background-color: var(--bg-white);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.2;
+img {
+  max-width: 100%;
+  display: block;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  transition: var(--transition);
+  transition: var(--transition-base);
 }
 
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  font-family: 'Poppins', sans-serif;
+ul, ol { list-style: none; }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
 }
 
+/* Serif accent — used for italic highlights à la Greenspire */
+.serif-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
 .container {
-  max-width: 1280px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 1.5rem;
 }
 
 .section-padding {
-  padding: 80px 0;
+  padding: var(--section-py) 0;
 }
 
-/* Typography Utilities */
-.text-primary { color: var(--primary); }
-.text-gray { color: var(--text-gray); }
-.text-center { text-align: center; }
-
-/* Buttons */
+/* ============================================================
+   BUTTONS
+   ============================================================ */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 28px;
-  border-radius: 50px;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
   font-weight: 600;
-  font-size: 1rem;
-  transition: var(--transition);
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: var(--transition-premium);
+  border: 1.5px solid transparent;
+  white-space: nowrap;
 }
 
 .btn-primary {
   background-color: var(--primary);
   color: var(--bg-white);
-  box-shadow: 0 4px 12px rgba(3, 130, 98, 0.3);
+  border-color: var(--primary);
+  box-shadow: 0 4px 16px rgba(3, 130, 98, 0.22);
 }
 
 .btn-primary:hover {
   background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(3, 130, 98, 0.4);
+  box-shadow: var(--shadow-green);
+  color: var(--bg-white);
 }
 
 .btn-outline {
   background-color: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
+  color: var(--text-dark);
+  border-color: rgba(26, 26, 26, 0.18);
 }
 
 .btn-outline:hover {
-  background-color: var(--primary-light);
+  background-color: var(--text-dark);
+  color: var(--bg-white);
+  border-color: var(--text-dark);
+  transform: translateY(-2px);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.btn-ghost {
+  background-color: var(--bg-offwhite);
+  color: var(--text-dark);
+  border-color: transparent;
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+.btn-ghost:hover {
+  background-color: var(--primary-muted);
+  color: var(--primary);
+  transform: translateY(-2px);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
+/* ============================================================
+   BADGE / PILL
+   ============================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--bg-offwhite);
+.badge-primary {
+  background-color: var(--primary-muted);
+  color: var(--primary);
+  border: 1px solid rgba(3, 130, 98, 0.18);
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 5px;
+.badge-dark {
+  background-color: var(--bg-dark);
+  color: var(--bg-white);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
+/* ============================================================
+   CARDS (global base)
+   ============================================================ */
+.card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: var(--border-subtle);
+  box-shadow: var(--shadow-premium);
+  transition: var(--transition-premium);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(3, 130, 98, 0.12);
+}
+
+/* ============================================================
+   GLASS PANEL
+   ============================================================ */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--border-white-subtle);
+  border-radius: var(--radius-full);
+}
+
+/* ============================================================
+   DIVIDER / HAIRLINE
+   ============================================================ */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(26,26,26,0.08), transparent);
+}
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+.text-center { text-align: center; }
+.text-primary { color: var(--primary); }
+.text-muted   { color: var(--text-gray); }
+
+.mb-4  { margin-bottom: 1rem; }
+.mb-6  { margin-bottom: 1.5rem; }
+.mb-8  { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mt-4  { margin-top: 1rem; }
+.mt-6  { margin-top: 1.5rem; }
+.mt-8  { margin-top: 2rem; }
+
+/* Floating WhatsApp button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.35);
+  transition: var(--transition-premium);
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.45);
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(3,130,98,0.25); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection {
+  background-color: var(--primary);
+  color: var(--bg-white);
+}
+
+/* ============================================================
+   FOCUS
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
 }

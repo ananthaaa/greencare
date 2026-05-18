@@ -1,103 +1,114 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Menu, X, MessageCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
+const navLinks = [
+  { label: 'Home',            href: '/#home',            type: 'scroll' },
+  { label: 'Products',        href: '/products',         type: 'route'  },
+  { label: 'Custom Printing', href: '/#custom-printing', type: 'scroll' },
+  { label: 'Contact',         href: '/#contact',         type: 'scroll' },
+];
+
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate  = useNavigate();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/#about' },
-    { name: 'Product Catalog', href: '/products' },
-    { name: 'Custom Printing', href: '/#custom-printing' },
-    { name: 'Contact', href: '/#contact' },
-  ];
+  useEffect(() => { setMenuOpen(false); }, [location]);
+
+  const handleNav = (e, link) => {
+    e.preventDefault();
+    setMenuOpen(false);
+
+    if (link.type === 'route') {
+      navigate(link.href);
+      return;
+    }
+
+    const hash = link.href.split('#')[1];
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+      }, 250);
+    } else {
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <motion.nav 
-      className={`navbar ${isScrolled ? 'scrolled' : ''}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="container nav-container">
-        <a href="#" className="logo">
-          <img src="/Logo02.png" alt="Greencare Logo" />
-        </a>
+    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+      <nav className="navbar__inner container">
+        {/* Logo */}
+        <Link to="/" className="navbar__logo" aria-label="Greencare home">
+          <img src="/Logo02.png" alt="Greencare" height="40" />
+        </Link>
 
-        <div className="nav-links desktop-only">
+        {/* Desktop links — centered */}
+        <ul className="navbar__links">
           {navLinks.map((link) => (
-            link.href.startsWith('/#') ? (
-              <a key={link.name} href={link.href} className="nav-link">
-                {link.name}
+            <li key={link.label}>
+              <a
+                href={link.href}
+                className={`navbar__link${location.pathname === link.href ? ' navbar__link--active' : ''}`}
+                onClick={(e) => handleNav(e, link)}
+              >
+                {link.label}
               </a>
-            ) : (
-              <Link key={link.name} to={link.href} className="nav-link">
-                {link.name}
-              </Link>
-            )
+            </li>
           ))}
-        </div>
+        </ul>
 
-        <div className="nav-actions desktop-only">
-          <a href="https://wa.me/919072112316" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
-            <MessageCircle size={20} />
-            WhatsApp Us
-          </a>
-        </div>
+        {/* Spacer to push hamburger right */}
+        <div className="navbar__spacer" />
 
-        <button className="mobile-menu-btn mobile-only" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <motion.div 
-          className="mobile-menu"
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
+        {/* Hamburger */}
+        <button
+          className="navbar__hamburger"
+          onClick={() => setMenuOpen(v => !v)}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
-          {navLinks.map((link) => (
-            link.href.startsWith('/#') ? (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className="mobile-nav-link"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ) : (
-              <Link 
-                key={link.name} 
-                to={link.href} 
-                className="mobile-nav-link"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            )
-          ))}
-          <a href="https://wa.me/919072112316" className="btn btn-primary mobile-cta" target="_blank" rel="noopener noreferrer">
-            <MessageCircle size={20} />
-            WhatsApp Us
-          </a>
-        </motion.div>
-      )}
-    </motion.nav>
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className="navbar__mobile"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+          >
+            <ul className="navbar__mobile-links">
+              {navLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="navbar__mobile-link"
+                    onClick={(e) => handleNav(e, link)}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 };
 

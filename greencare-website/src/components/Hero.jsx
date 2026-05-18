@@ -1,43 +1,108 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { PackageSearch, MessageCircle } from 'lucide-react';
+import { PackageSearch, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
+
+const containerVariants = {
+  hidden:  { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.16, delayChildren: 0.25 }
+  }
+};
+
+const itemVariants = {
+  hidden:  { opacity: 0, y: 36 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] }
+  }
+};
 
 const Hero = () => {
   return (
     <section className="hero" id="home">
-      <div className="hero-background">
-        <img src="/images/homeimage.png" alt="Premium Food Packaging Background" className="hero-img" />
-        <div className="hero-overlay"></div>
+      {/* Full-bleed background image */}
+      <div className="hero__bg">
+        <img
+          src="/images/homeimage.png"
+          alt="Premium Food Packaging"
+          className="hero__bg-img"
+        />
+        <div className="hero__bg-overlay" />
       </div>
-      
-      <div className="container hero-content">
-        <motion.div 
-          className="hero-text-content"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+
+      {/* Decorative blobs */}
+      <div className="hero__blob hero__blob--1" />
+      <div className="hero__blob hero__blob--2" />
+
+      <div className="container hero__body">
+        <motion.div
+          className="hero__content"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <span className="hero-badge">B2B Packaging Experts</span>
-          <h1 className="hero-title">
-            Premium Food Packaging & <br />
-            <span className="text-primary">Disposable Solutions</span>
-          </h1>
-          <p className="hero-subtitle">
-            Trusted supplier of high-quality food packaging materials, disposable containers, paper products, and customized branding solutions for restaurants, cafés, bakeries, and food businesses.
-          </p>
-          
-          <div className="hero-actions">
-            <a href="#products" className="btn btn-primary">
-              <PackageSearch size={20} />
+          {/* Badge */}
+          <motion.span className="hero__badge glass-panel" variants={itemVariants}>
+            <span className="hero__badge-dot" />
+            B2B Packaging Experts
+          </motion.span>
+
+          {/* Headline */}
+          <motion.h1 className="hero__title" variants={itemVariants}>
+            Premium Food{' '}
+            <span className="hero__title-serif">Packaging</span>
+            {' '}&amp;
+            <br />
+            <span className="hero__title-gradient">Disposable Solutions</span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p className="hero__subtitle" variants={itemVariants}>
+            Trusted supplier of high-quality food packaging materials, disposable containers,
+            paper products, and customised branding solutions for restaurants, cafés,
+            bakeries, and food businesses across Kerala.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div className="hero__ctas" variants={itemVariants}>
+            <Link to="/products" className="btn btn-primary hero__cta-primary">
+              <PackageSearch size={18} />
               View Products
+            </Link>
+            <a href="#contact" className="btn hero__cta-ghost">
+              Get a Quote
+              <ArrowRight size={16} />
             </a>
-            <a href="#contact" className="btn btn-outline">
-              Get Quote
-            </a>
-          </div>
+          </motion.div>
+
+          {/* Stats strip */}
+          <motion.div className="hero__stats" variants={itemVariants}>
+            {[
+              { value: '500+', label: 'Products' },
+              { value: '10+', label: 'Categories' },
+              { value: '1000+', label: 'Happy Clients' },
+            ].map(({ value, label }) => (
+              <div className="hero__stat" key={label}>
+                <span className="hero__stat-value">{value}</span>
+                <span className="hero__stat-label">{label}</span>
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="hero__scroll-hint"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+      >
+        <div className="hero__scroll-dot" />
+      </motion.div>
     </section>
   );
 };

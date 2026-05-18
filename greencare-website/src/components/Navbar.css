@@ -1,107 +1,149 @@
+/* ============================================================
+   NAVBAR — Greenspire-inspired
+   ============================================================ */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: var(--bg-white);
-  transition: var(--transition);
-  border-bottom: 1px solid transparent;
+  right: 0;
+  z-index: 900;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
 }
 
-.navbar.scrolled {
-  box-shadow: var(--shadow-sm);
-  border-bottom: 1px solid var(--border-color);
-  padding: 10px 0;
-}
-
-.nav-container {
+/* Default: transparent floating bar */
+.navbar__inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 72px;
+  gap: 0;
 }
 
-.logo img {
-  height: 48px;
-  object-fit: contain;
+/* Spacer mirrors logo width so links sit at true center */
+.navbar__spacer {
+  flex: 1;
+  max-width: 160px; /* roughly logo width */
 }
 
-.nav-links {
+/* After scroll: frosted glass card */
+.navbar--scrolled {
+  padding: 8px 16px;
+}
+
+.navbar--scrolled .navbar__inner {
+  background: rgba(250, 248, 245, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(26, 26, 26, 0.07);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  padding: 0 24px;
+  height: 60px;
+}
+
+/* ---- Logo ---- */
+.navbar__logo img {
+  height: 36px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+/* ---- Desktop links — centered ---- */
+.navbar__links {
   display: flex;
-  gap: 32px;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
 }
 
-.nav-link {
+.navbar__link {
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-size: 0.92rem;
   font-weight: 500;
-  font-size: 0.95rem;
+  color: var(--text-dark);
+  transition: var(--transition-base);
   position: relative;
 }
 
-.nav-link::after {
+.navbar__link::after {
   content: '';
   position: absolute;
-  width: 0;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 16px;
   height: 2px;
-  bottom: -4px;
-  left: 0;
+  border-radius: 2px;
   background-color: var(--primary);
-  transition: width 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
-.nav-link:hover {
-  color: var(--primary);
-}
+.navbar__link:hover,
+.navbar__link--active { color: var(--primary); }
 
-.nav-link:hover::after {
-  width: 100%;
-}
+.navbar__link:hover::after,
+.navbar__link--active::after { transform: translateX(-50%) scaleX(1); }
 
-.mobile-only {
+/* (Actions removed — no CTA buttons in navbar) */
+
+/* ---- Hamburger ---- */
+.navbar__hamburger {
   display: none;
-}
-
-.mobile-menu-btn {
+  margin-left: auto;
   background: none;
+  border: 1px solid rgba(26,26,26,0.10);
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
   color: var(--text-dark);
+  transition: var(--transition-base);
 }
 
-.mobile-menu {
-  background-color: var(--bg-white);
-  border-top: 1px solid var(--border-color);
-  padding: 16px 24px;
+.navbar__hamburger:hover {
+  background-color: var(--bg-offwhite);
+}
+
+/* ---- Mobile Menu ---- */
+.navbar__mobile {
+  background: rgba(250, 248, 245, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(26,26,26,0.06);
+  padding: 16px 0 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.navbar__mobile-links {
+  list-style: none;
+  padding: 0 1.5rem;
+}
+
+.navbar__mobile-link {
+  display: block;
+  padding: 14px 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  border-bottom: 1px solid rgba(26,26,26,0.05);
+  transition: var(--transition-base);
+}
+
+.navbar__mobile-link:hover { color: var(--primary); }
+
+.navbar__mobile-cta {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: var(--shadow-md);
+  gap: 10px;
+  padding: 20px 1.5rem 0;
 }
 
-.mobile-nav-link {
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.mobile-cta {
-  margin-top: 16px;
-  justify-content: center;
-}
-
+/* ---- Responsive ---- */
 @media (max-width: 768px) {
-  .desktop-only {
-    display: none;
-  }
-  
-  .mobile-only {
-    display: block;
-  }
-
-  .nav-container {
-    height: 70px;
-  }
-
-  .logo img {
-    height: 40px;
-  }
+  .navbar__links   { display: none; }
+  .navbar__spacer  { display: none; }
+  .navbar__hamburger { display: flex; align-items: center; }
 }
