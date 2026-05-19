@@ -229,82 +229,98 @@ export const productCategories = [
       {
         "name": "ALUMINIUM CONTAINER 750 ML",
         "uom": "PAC",
-        "price": 330
+        "price": 330,
+        "image": "/images/AluminiumContainer750.png"
       },
       {
         "name": "ALUMINIUM CONTAINER 450 ML",
         "uom": "PAC",
-        "price": 230
+        "price": 230,
+        "image": "/images/Aluminiumcontainer450.png"
       },
       {
         "name": "ALUMINIUM CONTAINER 250 ML",
         "uom": "PAC",
-        "price": 195
+        "price": 195,
+        "image": "/images/ALUMINIUMCONTAINER250ML.png"
       },
       {
         "name": "PLASTIC CONTAINER 25 ML",
         "uom": "NOS",
-        "price": 0.68
+        "price": 0.68,
+        "image": "/images/PLASTICCONTAINER25ML.png"
       },
       {
         "name": "PLASTIC CONTAINER 50 ML",
         "uom": "NOS",
-        "price": 1.35
+        "price": 1.35,
+        "image": "/images/PLASTICCONTAINER50ML.png"
       },
       {
         "name": "PLASTIC CONTAINER 100 ML",
         "uom": "NOS",
-        "price": 2.15
+        "price": 2.15,
+        "image": "/images/PLASTICCONTAINER100ML.png"
       },
       {
         "name": "PLASTIC CONTAINER 250 ML",
         "uom": "NOS",
-        "price": 3.25
+        "price": 3.25,
+        "image": "/images/PLASTICCONTAINER250ML.png"
       },
       {
         "name": "PLASTIC CONTAINER 300 ML SQURE",
         "uom": "NOS",
-        "price": 6.5
+        "price": 6.5,
+        "image": "/images/PLASTICCONTAINER300MLSQURE.png"
       },
       {
         "name": "PLASTIC CONTAINER 400 ML",
         "uom": "NOS",
-        "price": 4.1
+        "price": 4.1,
+        "image": "/images/PLASTICCONTAINER400ML.png"
       },
       {
         "name": "PLASTIC CONTAINER 500 ML",
         "uom": "NOS",
-        "price": 4.32
+        "price": 4.32,
+        "image": "/images/PLASTICCONTAINER500ML.png"
       },
       {
         "name": "PLASTIC CONTAINER 1000 ML",
         "uom": "NOS",
-        "price": 6.9
+        "price": 6.9,
+        "image": "/images/PLASTICCONTAINER1000ML.png"
       },
       {
         "name": "PLASTIC CONTAINER 500  ML SQURE",
         "uom": "NOS",
-        "price": 5.75
+        "price": 5.75,
+        "image": "/images/PLASTICCONTAINER500MLSQURE.png"
       },
       {
         "name": "PLASTIC CONTAINER 750 ML SQURE",
         "uom": "NOS",
-        "price": 6
+        "price": 6,
+        "image": "/images/PLASTICCONTAINER750MLSQURE.png"
       },
       {
         "name": "PLASTIC CONTAINER 2500 ML",
         "uom": "NOS",
-        "price": 18.36
+        "price": 18.36,
+        "image": "/images/PLASTICCONTAINER2500ML.png"
       },
       {
         "name": "SHAWARMA BOX",
         "uom": "NOS",
-        "price": 2.65
+        "price": 2.65,
+        "image": "/images/Shawarmabox.png"
       },
       {
         "name": "CRATE",
         "uom": "NOS",
-        "price": 315
+        "price": 315,
+        "image": "/images/Crate.png"
       }
     ]
   },
@@ -315,32 +331,38 @@ export const productCategories = [
       {
         "name": "TOOTH PICK",
         "uom": "PKT",
-        "price": 125
+        "price": 125,
+        "image": "/images/TOOTHPICK.png"
       },
       {
         "name": "WOODEN SPOON 110 MM",
         "uom": "PKT",
-        "price": 48
+        "price": 48,
+        "image": "/images/WOODENSPOON110MM.png"
       },
       {
         "name": "WOODEN SPOON 160 MM",
         "uom": "PKT",
-        "price": 75
+        "price": 75,
+        "image": "/images/WOODENSPOON160MM.png"
       },
       {
         "name": "WOODEN STIRER 160 MM",
         "uom": "PKT",
-        "price": 75
+        "price": 75,
+        "image": "/images/WOODENSTIRER160MM.png"
       },
       {
         "name": "WOODEN FORK 110 MM",
         "uom": "PKT",
-        "price": 60
+        "price": 60,
+        "image": "/images/WOODENFORK110MM.png"
       },
       {
         "name": "WOODEN FORK 160 MM",
         "uom": "PKT",
-        "price": 75
+        "price": 75,
+        "image": "/images/WOODENFORK160MM.png"
       }
     ]
   },

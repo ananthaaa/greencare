@@ -43,9 +43,14 @@
 
 /* ---- Logo ---- */
 .navbar__logo img {
-  height: 36px;
+  height: 56px;
   width: auto;
   flex-shrink: 0;
+  display: block;
+}
+
+.navbar--scrolled .navbar__logo img {
+  height: 48px;
 }
 
 /* ---- Desktop links — centered ---- */
@@ -146,4 +151,12 @@
   .navbar__links   { display: none; }
   .navbar__spacer  { display: none; }
   .navbar__hamburger { display: flex; align-items: center; }
+
+  .navbar__logo img {
+    height: 44px;
+  }
+
+  .navbar--scrolled .navbar__logo img {
+    height: 40px;
+  }
 }

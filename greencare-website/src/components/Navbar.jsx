@@ -50,7 +50,7 @@ const Navbar = () => {
       <nav className="navbar__inner container">
         {/* Logo */}
         <Link to="/" className="navbar__logo" aria-label="Greencare home">
-          <img src="/Logo02.png" alt="Greencare" height="40" />
+          <img src="/Logo02.png" alt="Greencare" />
         </Link>
 
         {/* Desktop links — centered */}
