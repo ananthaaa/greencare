@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, Star } from 'lucide-react';
+import { Target, Eye, Star, Truck } from 'lucide-react';
 import './About.css';
 
 const cards = [
@@ -13,6 +13,12 @@ const cards = [
     icon: <Eye size={22} />,
     title: 'Our Vision',
     body: 'To become one of the leading packaging solution providers in Kerala by offering quality products, excellent service, and customized branding support.',
+  },
+  {
+    icon: <Truck size={22} />,
+    title: 'Delivery at Catalog Rates',
+    body: 'We deliver directly to your business at the same rates listed in our catalog — transparent pricing, no hidden charges, reliable and timely delivery across Kerala.',
+    highlight: true,
   },
   {
     icon: <Star size={22} />,
@@ -55,6 +61,14 @@ const About = () => (
             Greencare helps businesses enhance their packaging standards while maintaining
             convenience and hygiene.
           </p>
+          {/* Delivery highlight */}
+          <div className="about__delivery-highlight">
+            <div className="about__delivery-icon"><Truck size={18} /></div>
+            <div>
+              <strong>Delivery Available Across Kerala</strong>
+              <p>All products are delivered at catalog rates — no price difference, no hidden costs. Order in bulk or as needed.</p>
+            </div>
+          </div>
         </motion.div>
 
         {/* Cards column */}
@@ -62,7 +76,7 @@ const About = () => (
           {cards.map((c, i) => (
             <motion.div
               key={c.title}
-              className="about__card"
+              className={`about__card${c.highlight ? ' about__card--delivery' : ''}`}
               initial={{ opacity: 0, x: 28 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}

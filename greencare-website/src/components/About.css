@@ -118,6 +118,60 @@
   flex-shrink: 0;
 }
 
+/* ---- Delivery highlight block (in text column) ---- */
+.about__delivery-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 8px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(3, 130, 98, 0.09) 0%, rgba(3, 130, 98, 0.04) 100%);
+  border: 1.5px solid rgba(3, 130, 98, 0.25);
+  border-radius: 14px;
+}
+
+.about__delivery-icon {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__delivery-highlight strong {
+  display: block;
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.about__delivery-highlight p {
+  font-size: 0.88rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---- Delivery card special style ---- */
+.about__card--delivery {
+  border-left-color: var(--primary);
+  background: linear-gradient(135deg, rgba(3, 130, 98, 0.07) 0%, var(--bg-white) 100%);
+}
+
+.about__card--delivery .about__card-icon {
+  background: var(--primary);
+  color: #fff;
+}
+
+.about__card--delivery .about__card-title {
+  color: var(--primary);
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
@@ -127,3 +181,4 @@
     gap: 48px;
   }
 }
+

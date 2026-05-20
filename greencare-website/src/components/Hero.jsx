@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { PackageSearch, ArrowRight } from 'lucide-react';
+import { PackageSearch, ArrowRight, Truck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './Hero.css';
 
@@ -77,6 +77,17 @@ const Hero = () => {
               Get a Quote
               <ArrowRight size={16} />
             </a>
+          </motion.div>
+
+          {/* Delivery Banner */}
+          <motion.div className="hero__delivery-banner" variants={itemVariants}>
+            <div className="hero__delivery-icon">
+              <Truck size={20} />
+            </div>
+            <div className="hero__delivery-text">
+              <span className="hero__delivery-title">🚚 Delivery Available</span>
+              <span className="hero__delivery-sub">Products delivered at catalog rates — no hidden charges</span>
+            </div>
           </motion.div>
 
           {/* Stats strip */}
