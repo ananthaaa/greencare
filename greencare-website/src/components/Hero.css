@@ -35,14 +35,20 @@
 .hero__bg-overlay {
   position: absolute;
   inset: 0;
-  /* Left-heavy gradient so text reads clearly */
-  background: linear-gradient(
-    100deg,
-    rgba(250, 248, 245, 0.97) 0%,
-    rgba(250, 248, 245, 0.90) 45%,
-    rgba(250, 248, 245, 0.55) 70%,
-    rgba(250, 248, 245, 0.10) 100%
-  );
+  /* Fix #6 — stronger overlay: left-heavy for text + bottom dark tint for contrast */
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 55%,
+      rgba(0, 0, 0, 0.28) 100%
+    ),
+    linear-gradient(
+      100deg,
+      rgba(250, 248, 245, 0.97) 0%,
+      rgba(250, 248, 245, 0.92) 45%,
+      rgba(250, 248, 245, 0.60) 68%,
+      rgba(250, 248, 245, 0.12) 100%
+    );
 }
 
 /* ---- Decorative blobs (Greenspire-like accents) ---- */
@@ -155,9 +161,10 @@
 }
 
 /* ---- CTAs ---- */
+/* Fix #5 — more breathing room between primary and ghost CTA */
 .hero__ctas {
   display: flex;
-  gap: 14px;
+  gap: 26px;
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 48px;
@@ -189,30 +196,32 @@
 }
 
 /* ---- Delivery Banner ---- */
+/* Fix #1 — confined within content flow, not a floating overlay */
 .hero__delivery-banner {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  padding: 13px 22px;
-  margin-bottom: 20px;
-  background: linear-gradient(135deg, rgba(3, 130, 98, 0.10) 0%, rgba(3, 130, 98, 0.05) 100%);
-  border: 1.5px solid rgba(3, 130, 98, 0.28);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  animation: deliveryGlow 3s ease-in-out infinite;
+  gap: 16px;
+  padding: 14px 26px 14px 18px;
+  margin-bottom: 24px; /* Fix #1 — clean gap before stats */
+  background: linear-gradient(135deg, #038262 0%, #026b50 100%);
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 24px rgba(3, 130, 98, 0.35), 0 1px 4px rgba(3, 130, 98, 0.2);
+  animation: deliveryGlow 2.4s ease-in-out infinite;
+  /* Prevent the card from stretching full width */
+  align-self: flex-start;
 }
 
 @keyframes deliveryGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(3, 130, 98, 0.0); }
-  50%       { box-shadow: 0 0 0 6px rgba(3, 130, 98, 0.08); }
+  0%, 100% { box-shadow: 0 4px 24px rgba(3, 130, 98, 0.35), 0 1px 4px rgba(3, 130, 98, 0.2); }
+  50%       { box-shadow: 0 4px 32px rgba(3, 130, 98, 0.55), 0 0 0 6px rgba(3, 130, 98, 0.12); }
 }
 
 .hero__delivery-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: var(--primary);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.20);
   color: #fff;
   display: flex;
   align-items: center;
@@ -223,32 +232,37 @@
 .hero__delivery-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 1px;
 }
 
 .hero__delivery-title {
-  font-size: 0.97rem;
-  font-weight: 700;
-  color: var(--primary);
-  letter-spacing: -0.01em;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .hero__delivery-sub {
-  font-size: 0.82rem;
-  color: var(--text-gray);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.82);
   font-weight: 500;
 }
 
 /* ---- Stats strip ---- */
+/* Fix #2 — right padding clears the WhatsApp FAB (56px wide + 28px right = 84px) */
 .hero__stats {
   display: flex;
   gap: 32px;
-  padding: 20px 28px;
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(26,26,26,0.07);
+  padding: 20px 100px 20px 28px;
+  background: rgba(255, 255, 255, 0.72); /* Fix #1 — stronger glass so it reads clearly */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(26,26,26,0.10);
   border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  align-self: flex-start; /* Don't stretch full width */
 }
 
 .hero__stat {
@@ -312,15 +326,21 @@
     object-position: 65% center;
   }
 
-  /* Lighter overlay so the image shows clearly behind the text */
+  /* Mobile overlay — keep bottom dark tint on mobile too */
   .hero__bg-overlay {
-    background: linear-gradient(
-      160deg,
-      rgba(250, 248, 245, 0.92) 0%,
-      rgba(250, 248, 245, 0.80) 40%,
-      rgba(250, 248, 245, 0.55) 65%,
-      rgba(250, 248, 245, 0.20) 100%
-    );
+    background:
+      linear-gradient(
+        to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.30) 100%
+      ),
+      linear-gradient(
+        160deg,
+        rgba(250, 248, 245, 0.94) 0%,
+        rgba(250, 248, 245, 0.82) 40%,
+        rgba(250, 248, 245, 0.58) 65%,
+        rgba(250, 248, 245, 0.18) 100%
+      );
   }
 
   .hero__content {
@@ -337,6 +357,7 @@
   .hero__ctas {
     flex-direction: column;
     width: auto;
+    gap: 14px; /* tighter on mobile — column layout needs less gap */
   }
 
   .hero__cta-primary,
