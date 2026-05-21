@@ -251,28 +251,32 @@
 }
 
 /* ---- Stats strip ---- */
-/* Fix #2 — right padding clears the WhatsApp FAB (56px wide + 28px right = 84px) */
+/* Compact pill — clears the WhatsApp FAB on the right */
 .hero__stats {
   display: flex;
-  gap: 32px;
-  padding: 20px 100px 20px 28px;
-  background: rgba(255, 255, 255, 0.72); /* Fix #1 — stronger glass so it reads clearly */
+  gap: 20px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(26,26,26,0.10);
-  border-radius: 20px;
+  border-radius: 14px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  align-self: flex-start; /* Don't stretch full width */
+  align-self: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero__stat {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 2px;
 }
 
 .hero__stat-value {
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--primary);
   letter-spacing: -0.02em;
