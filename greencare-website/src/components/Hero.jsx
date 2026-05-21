@@ -90,19 +90,6 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Stats strip */}
-          <motion.div className="hero__stats" variants={itemVariants}>
-            {[
-              { value: '500+', label: 'Products' },
-              { value: '10+', label: 'Categories' },
-              { value: '1000+', label: 'Happy Clients' },
-            ].map(({ value, label }) => (
-              <div className="hero__stat" key={label}>
-                <span className="hero__stat-value">{value}</span>
-                <span className="hero__stat-label">{label}</span>
-              </div>
-            ))}
-          </motion.div>
         </motion.div>
       </div>
 

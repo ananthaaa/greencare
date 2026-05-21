@@ -250,44 +250,7 @@
   font-weight: 500;
 }
 
-/* ---- Stats strip ---- */
-/* Compact pill — clears the WhatsApp FAB on the right */
-.hero__stats {
-  display: flex;
-  gap: 20px;
-  padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(26,26,26,0.10);
-  border-radius: 14px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  align-self: flex-start;
-  align-items: center;
-  justify-content: center;
-}
 
-.hero__stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 2px;
-}
-
-.hero__stat-value {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--primary);
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-
-.hero__stat-label {
-  font-size: 0.8rem;
-  color: var(--text-gray);
-  font-weight: 500;
-}
 
 /* ---- Scroll hint ---- */
 .hero__scroll-hint {

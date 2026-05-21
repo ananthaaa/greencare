@@ -101,6 +101,26 @@ const About = () => (
         </div>
       </div>
 
+      {/* Stats strip */}
+      <motion.div
+        className="about__stats"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        {[
+          { value: '500+', label: 'Products' },
+          { value: '10+',  label: 'Categories' },
+          { value: '1000+', label: 'Happy Clients' },
+        ].map(({ value, label }) => (
+          <div className="about__stat" key={label}>
+            <span className="about__stat-value">{value}</span>
+            <span className="about__stat-label">{label}</span>
+          </div>
+        ))}
+      </motion.div>
+
     </div>
   </section>
 );
