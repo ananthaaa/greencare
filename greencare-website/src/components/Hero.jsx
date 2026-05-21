@@ -85,7 +85,7 @@ const Hero = () => {
               <Truck size={20} />
             </div>
             <div className="hero__delivery-text">
-              <span className="hero__delivery-title">🚚 Delivery Available</span>
+              <span className="hero__delivery-title">Delivery Available</span>
               <span className="hero__delivery-sub">Products delivered at catalog rates — no hidden charges</span>
             </div>
           </motion.div>
