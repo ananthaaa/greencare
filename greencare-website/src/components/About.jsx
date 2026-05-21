@@ -14,12 +14,7 @@ const cards = [
     title: 'Our Vision',
     body: 'To become one of the leading packaging solution providers in Kerala by offering quality products, excellent service, and customized branding support.',
   },
-  {
-    icon: <Truck size={22} />,
-    title: 'Delivery at Catalog Rates',
-    body: 'We deliver directly to your business at the same rates listed in our catalog — transparent pricing, no hidden charges, reliable and timely delivery across Kerala.',
-    highlight: true,
-  },
+
   {
     icon: <Star size={22} />,
     title: 'Core Values',
