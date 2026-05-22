@@ -230,7 +230,7 @@ export const productCatalog = [
         image: '/images/bucket40ltr.jpg',
         products: [
           { name: 'Bucket 40 Ltr', uom: 'NOS', price: 789, image: '/images/bucket40ltr.jpg' },
-          { name: 'Blue Crate', uom: 'NOS', price: 315, image: '/images/CRATE1.png' },
+          { name: 'Blue Crate', uom: 'NOS', price: 315, image: '/images/BLUE CRATE.jpg' },
           { name: 'Mug', uom: 'NOS', price: 55, image: '/images/mug.jpg' },
         ],
       },
