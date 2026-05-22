@@ -25,9 +25,9 @@ export const productCategories = [
       { "name": "CARRY BAG PLASTIC", "uom": "KG", "price": 145, "image": "/images/plasticcarrybag.png" },
       { "name": "HM COVER", "uom": "KG", "price": 155, "image": "/images/hmcover.png" },
       { "name": "LD COVER", "uom": "KG", "price": 200, "image": "/images/ldcover.png" },
-      { "name": "SOS PAPER COVER SQUARE BOTTOM (S/M/L)", "uom": "KG", "price": 120, "image": "/images/paper_bags.png" },
-      { "name": "PAPER COVER V BOTTOM", "uom": "KG", "price": 95, "image": "/images/paper_bags.png" },
-      { "name": "PAPER BAG (11×11×6)", "uom": "NOS", "price": 9.5, "image": "/images/paper_bags.png" }
+      { "name": "SOS PAPER COVER SQUARE BOTTOM (S/M/L)", "uom": "KG", "price": 120, "image": "/images/sospapercoversquarebottom.jpg" },
+      { "name": "PAPER COVER V BOTTOM", "uom": "KG", "price": 95, "image": "/images/papercovervbottom.png" },
+      { "name": "PAPER BAG (11×11×6)", "uom": "NOS", "price": 9.5, "image": "/images/paperbag11x11x6.png" }
     ]
   },
   {
@@ -43,9 +43,6 @@ export const productCategories = [
       { "name": "DINE EARTH PAPER PLATE 6 INCH", "uom": "NOS", "price": 1.99, "image": "/images/paperplatesmall.png" },
       { "name": "BL PLASTIC GLASS 300 ML", "uom": "NOS", "price": 5.8, "image": "/images/papercup.png" },
       { "name": "BL PLASTIC GLASS 350 ML", "uom": "NOS", "price": 6, "image": "/images/papercup.png" },
-      { "name": "3 COMPARTMENT PARCEL TRAY", "uom": "NOS", "price": 12, "image": "/images/paper_straws.png" },
-      { "name": "5 COMPARTMENT PARCEL TRAY", "uom": "NOS", "price": 13, "image": "/images/paper_straws.png" },
-      { "name": "8 COMPARTMENT PARCEL TRAY", "uom": "NOS", "price": 17, "image": "/images/paper_straws.png" },
       { "name": "PAPER NAPKIN", "uom": "PKT", "price": "16/18/25/35", "image": "/images/papernapkin2.png" },
       { "name": "M FOLD NAPKIN", "uom": "NOS", "price": 48, "image": "/images/mfoldnapkin.png" },
       { "name": "TOILET ROLL", "uom": "NOS", "price": 18, "image": "/images/toiletroll.png" },
@@ -81,7 +78,10 @@ export const productCategories = [
       { "name": "PLASTIC CONTAINER 750 ML SQUARE", "uom": "NOS", "price": 6, "image": "/images/PLASTICCONTAINER750MLSQURE.png" },
       { "name": "PLASTIC CONTAINER 1000 ML ROUND", "uom": "NOS", "price": 6.9, "image": "/images/PLASTICCONTAINER1000ML.png" },
       { "name": "PLASTIC CONTAINER 1000 ML SQUARE", "uom": "NOS", "price": null, "image": "/images/PLASTICCONTAINER1000ML.png" },
-      { "name": "PLASTIC CONTAINER 2500 ML", "uom": "NOS", "price": 18.36, "image": "/images/PLASTICCONTAINER2500ML.png" }
+      { "name": "PLASTIC CONTAINER 2500 ML", "uom": "NOS", "price": 18.36, "image": "/images/PLASTICCONTAINER2500ML.png" },
+      { "name": "3 COMPARTMENT PARCEL TRAY", "uom": "NOS", "price": 12, "image": "/images/3compartmentparceltray.jpg" },
+      { "name": "5 COMPARTMENT PARCEL TRAY", "uom": "NOS", "price": 13, "image": "/images/5compartmentparceltray.jpg" },
+      { "name": "8 COMPARTMENT PARCEL TRAY", "uom": "NOS", "price": 17, "image": "/images/8compartmentparceltray.jpg" }
     ]
   },
   {
@@ -103,46 +103,46 @@ export const productCategories = [
     "category": "Cleaning Chemicals",
     "image": "/images/cleaning_chemicals.png",
     "products": [
-      { "name": "DISH WASH 5 LTR", "uom": "NOS", "price": 290 },
-      { "name": "HAND WASH 5 LTR", "uom": "NOS", "price": 390 },
-      { "name": "TOILET CLEANER 5 LTR", "uom": "NOS", "price": 485 },
-      { "name": "GLASS CLEANER 5 LTR", "uom": "NOS", "price": 445 },
-      { "name": "FLOOR CLEANER 5 LTR", "uom": "NOS", "price": 350 },
-      { "name": "MULTI CLEANER 5 LTR", "uom": "NOS", "price": 649 },
-      { "name": "AIR FRESHENER 5 LTR", "uom": "NOS", "price": 1025 },
-      { "name": "SANITIZER 5 LTR", "uom": "NOS", "price": 895 },
-      { "name": "CHLORINE 5 LTR", "uom": "NOS", "price": 230 },
-      { "name": "PHYNLE 5 LTR", "uom": "NOS", "price": 289 },
-      { "name": "CAUSTIC SODA", "uom": "KG", "price": 110 },
-      { "name": "ODONIL", "uom": "NOS", "price": 65 }
+      { "name": "DISH WASH 5 LTR", "uom": "NOS", "price": 290, "image": "/images/dishwash5ltr.png" },
+      { "name": "HAND WASH 5 LTR", "uom": "NOS", "price": 390, "image": "/images/handwash5ltr.png" },
+      { "name": "TOILET CLEANER 5 LTR", "uom": "NOS", "price": 485, "image": "/images/toiletcleaner5ltr.png" },
+      { "name": "GLASS CLEANER 5 LTR", "uom": "NOS", "price": 445, "image": "/images/glasscleaner5ltr.png" },
+      { "name": "FLOOR CLEANER 5 LTR", "uom": "NOS", "price": 350, "image": "/images/floorcleaner5ltr.png" },
+      { "name": "MULTI CLEANER 5 LTR", "uom": "NOS", "price": 649, "image": "/images/multicleaner5ltr.png" },
+      { "name": "AIR FRESHENER 5 LTR", "uom": "NOS", "price": 1025, "image": "/images/airfreshener5ltr.png" },
+      { "name": "SANITIZER 5 LTR", "uom": "NOS", "price": 895, "image": "/images/sanitizer5ltr.png" },
+      { "name": "CHLORINE 5 LTR", "uom": "NOS", "price": 230, "image": "/images/chlorine5ltr.png" },
+      { "name": "PHYNLE 5 LTR", "uom": "NOS", "price": 289, "image": "/images/phynle5ltr.png" },
+      { "name": "CAUSTIC SODA", "uom": "KG", "price": 110, "image": "/images/causticsoda.png" },
+      { "name": "ODONIL", "uom": "NOS", "price": 65, "image": "/images/odonil.png" }
     ]
   },
   {
     "category": "Cleaning Tools",
     "image": "/images/cleaning_tools.png",
     "products": [
-      { "name": "SCOTCH BRITE", "uom": "NOS", "price": 19 },
-      { "name": "STEEL WOOL", "uom": "NOS", "price": 27 },
-      { "name": "MOP", "uom": "NOS", "price": 300 },
-      { "name": "WIPER (BLACK)", "uom": "NOS", "price": 260 },
-      { "name": "WIPER MULTI-COLOR", "uom": "NOS", "price": 210 },
-      { "name": "TABLE CLEANING WIPER", "uom": "NOS", "price": 99 },
-      { "name": "TABLE CLEANING SPONGE (CELLULOSE)", "uom": "PKT", "price": 155 },
-      { "name": "SCRUBBING BRUSH", "uom": "NOS", "price": 325 },
-      { "name": "TOILET BRUSH", "uom": "NOS", "price": 120 },
-      { "name": "BOTTLE CLEANING BRUSH", "uom": "NOS", "price": 65 },
-      { "name": "PLASTIC BROOM", "uom": "NOS", "price": 280 },
-      { "name": "BROOM", "uom": "NOS", "price": 270 },
-      { "name": "COCONUT BROOM", "uom": "NOS", "price": 40 },
-      { "name": "DUST PAN", "uom": "NOS", "price": 85 },
-      { "name": "DUST PAN WITH HANDLE", "uom": "NOS", "price": 160 },
-      { "name": "LOBBY DUST PAN", "uom": "NOS", "price": 950 },
-      { "name": "DUSTBIN", "uom": "NOS", "price": 560 },
-      { "name": "BUCKET 40 LTR", "uom": "NOS", "price": 850 },
-      { "name": "CRATE", "uom": "NOS", "price": 315 },
-      { "name": "MUG", "uom": "NOS", "price": 55 },
-      { "name": "MAT", "uom": "NOS", "price": 195 },
-      { "name": "LAUNDRY BAG", "uom": "NOS", "price": 11.5 },
+      { "name": "SCOTCH BRITE", "uom": "NOS", "price": 19, "image": "/images/scotchbrite.jpg" },
+      { "name": "STEEL WOOL", "uom": "NOS", "price": 27, "image": "/images/steelwool.jpg" },
+      { "name": "MOP", "uom": "NOS", "price": 300, "image": "/images/mop.jpg" },
+      { "name": "WIPER (BLACK)", "uom": "NOS", "price": 260, "image": "/images/wiperblack.jpg" },
+      { "name": "WIPER MULTI-COLOR", "uom": "NOS", "price": 210, "image": "/images/wipermulticolor.jpg" },
+      { "name": "TABLE CLEANING WIPER", "uom": "NOS", "price": 99, "image": "/images/tablecleaningwiper.jpg" },
+      { "name": "TABLE CLEANING SPONGE (CELLULOSE)", "uom": "PKT", "price": 155, "image": "/images/tablecleaningsponge.jpg" },
+      { "name": "SCRUBBING BRUSH", "uom": "NOS", "price": 325, "image": "/images/scrubbingbrush.jpg" },
+      { "name": "TOILET BRUSH", "uom": "NOS", "price": 120, "image": "/images/toiletbrush.jpg" },
+      { "name": "BOTTLE CLEANING BRUSH", "uom": "NOS", "price": 65, "image": "/images/bottlecleaningbrush.png" },
+      { "name": "PLASTIC BROOM", "uom": "NOS", "price": 280, "image": "/images/plasticbroom.jpg" },
+      { "name": "BROOM", "uom": "NOS", "price": 270, "image": "/images/broom.png" },
+      { "name": "COCONUT BROOM", "uom": "NOS", "price": 40, "image": "/images/coconutbroom.jpg" },
+      { "name": "DUST PAN", "uom": "NOS", "price": 85, "image": "/images/dustpan.jpg" },
+      { "name": "DUST PAN WITH HANDLE", "uom": "NOS", "price": 160, "image": "/images/dustpanwithhandle.jpg" },
+      { "name": "LOBBY DUST PAN", "uom": "NOS", "price": 950, "image": "/images/lobbydustpan.jpg" },
+      { "name": "DUSTBIN", "uom": "NOS", "price": 560, "image": "/images/dustbin.png" },
+      { "name": "BUCKET 40 LTR", "uom": "NOS", "price": 850, "image": "/images/bucket40ltr.jpg" },
+      { "name": "CRATE", "uom": "NOS", "price": 315, "image": "/images/crate.png" },
+      { "name": "MUG", "uom": "NOS", "price": 55, "image": "/images/mug.jpg" },
+      { "name": "MAT", "uom": "NOS", "price": 195, "image": "/images/mat.jpg" },
+      { "name": "LAUNDRY BAG", "uom": "NOS", "price": 11.5, "image": "/images/laundrybag.jpg" },
       { "name": "COTTON FABRIC SLIPPER", "uom": "NOS", "price": 44 }
     ]
   },
@@ -150,13 +150,13 @@ export const productCategories = [
     "category": "Tapes & Misc",
     "image": "/images/custom_branding.png",
     "products": [
-      { "name": "CELLO TAPE", "uom": "NOS", "price": 17.5 },
-      { "name": "MASKING TAPE", "uom": "NOS", "price": 125 },
-      { "name": "BROWN TAPE", "uom": "NOS", "price": 115 },
-      { "name": "RUBBER BAND", "uom": "KG", "price": 390 },
-      { "name": "PIN 25 MM", "uom": "PKT", "price": 40 },
-      { "name": "POLY GUARD KNIFE", "uom": "NOS", "price": 110 },
-      { "name": "GEL FUEL 200 GM", "uom": "NOS", "price": 21.5 }
+      { "name": "CELLO TAPE", "uom": "NOS", "price": 17.5, "image": "/images/cellotape.png" },
+      { "name": "MASKING TAPE", "uom": "NOS", "price": 125, "image": "/images/maskingtape.png" },
+      { "name": "BROWN TAPE", "uom": "NOS", "price": 115, "image": "/images/browntape.png" },
+      { "name": "RUBBER BAND", "uom": "KG", "price": 390, "image": "/images/rubberband.jpg" },
+      { "name": "PIN 25 MM", "uom": "PKT", "price": 40, "image": "/images/pin25mm.jpg" },
+      { "name": "POLY GUARD KNIFE", "uom": "NOS", "price": 110, "image": "/images/polyguardknife.png" },
+      { "name": "GEL FUEL 200 GM", "uom": "NOS", "price": 21.5, "image": "/images/gelfuel200gm.jpg" }
     ]
   }
 ];
