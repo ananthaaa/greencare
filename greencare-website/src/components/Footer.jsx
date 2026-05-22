@@ -52,7 +52,7 @@ const Footer = () => (
           <ul className="footer__links footer__links--contact">
             <li>KK Road, Opp Indian Oil Pump, Chempumukku</li>
             <li>+91 9072112316</li>
-            <li>greencarepacks@gmail.com</li>
+            <li>greencare2003@gmail.com</li>
           </ul>
           <a
             href="https://wa.me/919072112316"
@@ -68,7 +68,7 @@ const Footer = () => (
 
       <div className="footer__bottom">
         <p>&copy; {new Date().getFullYear()} Greencare Packaging Solutions. All rights reserved.</p>
-        <p className="footer__gst">GST: 32APYPJ7697H1Z1</p>
+        <p className="footer__gst">GST: 32CKCPTO619N1Z0</p>
       </div>
     </div>
   </footer>

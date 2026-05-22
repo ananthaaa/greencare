@@ -70,9 +70,9 @@ Message: ${formData.message}`;
             <div className="contact__info-items">
               {[
                 { icon: <Phone size={20} />, label: 'Call / WhatsApp', value: '+91 9072112316' },
-                { icon: <Mail size={20} />, label: 'Email', value: 'greencarepacks@gmail.com' },
+                { icon: <Mail size={20} />, label: 'Email', value: 'greencare2003@gmail.com' },
                 { icon: <MapPin size={20} />, label: 'Address', value: 'KK Road, Opp Indian Oil Pump, Chempumukku' },
-                { icon: <FileText size={20} />, label: 'GST Number', value: '32APYPJ7697H1Z1' },
+                { icon: <FileText size={20} />, label: 'GST Number', value: '32CKCPTO619N1Z0' },
               ].map((item) => (
                 <div key={item.label} className="contact__info-item">
                   <div className="contact__info-icon">{item.icon}</div>
