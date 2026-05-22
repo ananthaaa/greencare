@@ -87,7 +87,7 @@ Message: ${formData.message}`;
             <div className="contact__catalog">
               <h4>Want to see all our products?</h4>
               <a
-                href="https://docs.google.com/spreadsheets/d/1C03dhohyOkrKj554cuy_IfD6sOPlkpCn/edit?usp=sharing&ouid=114737019984101856603&rtpof=true&sd=true"
+                href="/greencare.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="btn"
