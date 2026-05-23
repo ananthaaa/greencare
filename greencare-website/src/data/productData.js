@@ -240,7 +240,7 @@ export const productCatalog = [
         products: [
           { name: 'Mat', uom: 'NOS', price: 195, image: '/images/mat.jpg' },
           { name: 'Laundry Bag', uom: 'NOS', price: 11.5, image: '/images/laundrybag.jpg' },
-          { name: 'Cotton Fabric Slipper', uom: 'NOS', price: 44, image: '/images/mat.jpg' },
+          { name: 'Cotton Fabric Slipper', uom: 'NOS', price: 44, image: '/images/cotton_fabric_slipper.jpg' },
         ],
       },
     ],
